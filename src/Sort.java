@@ -46,13 +46,24 @@ public class Sort {
             FileReader fr = new FileReader(path);// Objeto para que establece origen de los datos
             BufferedReader entrada = new BufferedReader(fr); // buffer para el manejo de los datos
             String s="";
-            String[] values = new String[3000];
+            ArrayList<String> values= new ArrayList<>();
+            String[] valores = new String[3000];
+            String temp = "";
             while((s = entrada.readLine()) != null) {// leer linea a linea
-                values = s.split(",");
-                System.out.println(values[0]);
+                valores = s.split(",");
+                values.add(valores[0]);
+                //System.out.println(values[0]);
+
             }
-            numeros = Arrays.stream(values).mapToInt(Integer::parseInt).toArray();
-            System.out.println(numeros[0]);
+            String[] valores2 = new String[3000];
+            for (int j = 0; j < values.size(); j++) {
+
+                // Assign each value to String array
+                valores2[j] = values.get(j);
+            }
+            //System.out.println(valores2.length);
+            numeros = Arrays.stream(valores2).mapToInt(Integer::parseInt).toArray();
+            //System.out.println(values.length);
             entrada.close();
             return numeros;
 
