@@ -76,6 +76,42 @@ public class Sort {
         }
         return null;
     }
+    public int[] arregloDe10(int[] arreglo){
+        int[] arreglo2 = new int[10];
+        for(int i=0; i<10;i++){
+            arreglo2[i] = arreglo[i];
+        }
+        return arreglo2;
+    }
+    public int[] arregloDe100(int[] arreglo){
+        int[] arreglo2 = new int[100];
+        for(int i=0; i<100;i++){
+            arreglo2[i] = arreglo[i];
+        }
+        return arreglo2;
+    }
+    public int[] arregloDe500(int[] arreglo){
+        int[] arreglo2 = new int[500];
+        for(int i=0; i<500;i++){
+            arreglo2[i] = arreglo[i];
+        }
+        return arreglo2;
+    }
+    public int[] arregloDe1000(int[] arreglo){
+        int[] arreglo2 = new int[1000];
+        for(int i=0; i<1000;i++){
+            arreglo2[i] = arreglo[i];
+        }
+        return arreglo2;
+    }
+    public int[] arregloDe2000(int[] arreglo){
+        int[] arreglo2 = new int[2000];
+        for(int i=0; i<2000;i++){
+            arreglo2[i] = arreglo[i];
+        }
+        return arreglo2;
+    }
+
     /*
      * swap es parte del algoritmo sortbubble
      */

@@ -6,14 +6,18 @@ public class Principal {
         Sort sort = new Sort();
         sort.llenarNumeros();
         sort.leerDocu();
+        //sort.bubbleSort(sort.leerDocu());
 
-        System.out.println(sort.leerDocu().length);
+        sort.bubbleSort(sort.leerDocu());
+        sort.bubbleSort(sort.arregloDe10(sort.leerDocu()));
+        sort.bubbleSort(sort.arregloDe100(sort.leerDocu()));
+        sort.bubbleSort(sort.arregloDe500(sort.leerDocu()));
+        sort.bubbleSort(sort.arregloDe1000(sort.leerDocu()));
+        sort.bubbleSort(sort.arregloDe2000(sort.leerDocu()));
 
-        //System.out.println(sort.leerDocu().get(0));
-      for (int i = 0; i<sort.leerDocu().length; i++){
+      /*for (int i = 0; i<sort.leerDocu().length; i++){
             System.out.println(sort.bubbleSort(sort.leerDocu())[i]);
-        }
-
+        }*/
 
 
 
