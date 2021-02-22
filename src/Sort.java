@@ -25,7 +25,7 @@ public class Sort {
     public void llenarNumeros() throws IOException {
         Random randomN = new Random();
         for (int i = 0; i<3000; i++) {
-            numeros[i] = randomN.nextInt();
+            numeros[i] = Math.abs(randomN.nextInt());
         }
         FileWriter writer = new FileWriter("C:\\Users\\50246\\IdeaProjects\\Sorts\\JavaOut.csv");
 
@@ -140,6 +140,103 @@ public class Sort {
         }
         return numeros;
     }
+/*
+gnome sort
+ */
+    public int[] gnomeSort(int arr[], int n) {
+        int index = 0;
 
+        while (index < n) {
+            if (index == 0)
+                index++;
+            if (arr[index] >= arr[index - 1])
+                index++;
+            else {
+                int temp = 0;
+                temp = arr[index];
+                arr[index] = arr[index - 1];
+                arr[index - 1] = temp;
+                index--;
+            }
+        }
+        return arr;
+    }
+    /*
+    quick sort
+     */
+    public int[] quickSort(int[] input, int start, int end) {
+        if (end - start < 2) {
+            return null;
+        }
+
+        int pivotIndex = partition(input, start, end);
+        quickSort(input, start, pivotIndex);
+        /*for (int i = 0; i < input.length; i++) {
+            System.out.println(input[i]);
+        }*/
+        quickSort(input, pivotIndex + 1, end);
+        return input;
+    }
+
+    public int partition(int[] input, int start, int end) {
+        // This is using the first element as the pivot
+        int pivot = input[start];
+        int i = start;
+        int j = end;
+
+        while (i < j) {
+
+            // NOTE: empty loop body
+            while (i < j && input[--j] >= pivot);
+            if (i < j) {
+                input[i] = input[j];
+            }
+
+            // NOTE: empty loop body
+            while (i < j && input[++i] <= pivot);
+            if (i < j) {
+                input[j] = input[i];
+            }
+
+        }
+
+        input[j] = pivot;
+        return j;
+
+    }
+/*
+merge
+ */
+public int[] mergeSort(int[] numeros, int start, int end) {
+
+    if (end - start < 2) {
+        return numeros;
+    }
+    int mid = (start + end) / 2;
+    mergeSort(numeros, start, mid);
+    mergeSort(numeros, mid, end);
+    merge(numeros, start, mid, end);
+    return numeros;
+}
+
+    public static int[] merge(int[] numeros, int start, int mid, int end) {
+
+        if (numeros[mid - 1] <= numeros[mid]) {
+            return numeros;
+        }
+
+        int i = start;
+        int j = mid;
+        int tempIndex = 0;
+
+        int[] temp = new int[end - start];
+        while (i < mid && j < end) {
+            temp[tempIndex++] = numeros[i] <= numeros[j] ? numeros[i++] : numeros[j++];
+        }
+
+        System.arraycopy(numeros, i, numeros, start + tempIndex, mid - i);
+        System.arraycopy(temp, 0, numeros, start, tempIndex);
+        return numeros;
+    }
 
 }
